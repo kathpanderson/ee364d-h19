@@ -1,0 +1,17 @@
+directories:
+  output: dist
+  buildResources: assets
+files:
+  - filter:
+      - build/**/*
+      - build/**/*
+      - node_modules/**/*
+extraMetadata:
+  main: build/electron.js
+appId: com.my-website.my-app
+productName: H19 Controls UI
+copyright: 'Copyright © 2019 ${author}'
+mac:
+  category: public.app-category.utilities
+extends: react-cra
+electronVersion: 8.0.1
