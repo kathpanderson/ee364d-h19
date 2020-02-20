@@ -21,6 +21,14 @@
   padding: 0 0 5px 0 !important;
 }
 
+.is-bordered-right {
+  border-right: 1px solid lightgray;
+}
+
+.is-bordered-bottom {
+  border-bottom: 1px solid lightgray;
+}
+
 .subsection-title {
   margin-left: 10px;
 }
@@ -38,8 +46,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }

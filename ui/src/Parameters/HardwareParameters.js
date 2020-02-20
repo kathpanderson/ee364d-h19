@@ -2,7 +2,7 @@ import React from 'react';
 
 function HardwareParameters() {
   return (
-    <div class="tile is-vertical">
+    <div class="tile is-vertical is-bordered-bottom">
       <div class="tile has-text-weight-bold">Hardware Parameters</div>
       <div class="tile is-parent is-custom-tile">
         <div className="tile is-child option-label">

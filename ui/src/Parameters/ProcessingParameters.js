@@ -1,6 +1,7 @@
 import React from 'react';
 
-var defaultSNRVal = 10;
+const defaultSNRVal = 10;
+const defaultPixelVal = 128;
 
 function ProcessingParameters() {
   return (
@@ -13,13 +14,13 @@ function ProcessingParameters() {
   );
 }
 
-function generateTextParam(name, unit) {
+function generateTextParam(name, defaultVal, unit) {
   return (
     <div class="tile is-parent is-custom-tile">
       <div class="tile is-child option-label">{name}:</div>
       <div class="tile is-2 field is-marginless">
         <div class="control">
-          <textarea class="textarea has-fixed-size" rows="1" placeholder={defaultSNRVal}></textarea>
+          <textarea class="textarea has-fixed-size" rows="1" placeholder={defaultVal}></textarea>
         </div>
       </div>
       <div class="tile is-child option-unit">{unit}</div>
@@ -31,10 +32,10 @@ function SNRParams() {
   return (
     <div class="tile is-vertical">
       <div class="tile subsection-title is-italic">SNR</div>
-      {generateTextParam("Photodetector 1", "dB")}
-      {generateTextParam("Photodetector 2", "dB")}
-      {generateTextParam("Tip Current", "dB")}
-      {generateTextParam("Tip Bias", "dB")}
+      {generateTextParam("Photodetector 1", defaultSNRVal, "dB")}
+      {generateTextParam("Photodetector 2", defaultSNRVal, "dB")}
+      {generateTextParam("Tip Current", defaultSNRVal, "dB")}
+      {generateTextParam("Tip Bias", defaultSNRVal, "dB")}
     </div>
   );
 }
@@ -43,8 +44,8 @@ function ImageParams() {
   return (
     <div class="tile is-vertical">
       <div class="tile subsection-title is-italic">Image Dimensions</div>
-      {generateTextParam("x", "pixels")}
-      {generateTextParam("y", "pixels")}
+      {generateTextParam("x", defaultPixelVal, "pixels")}
+      {generateTextParam("y", defaultPixelVal, "pixels")}
     </div>
   );
 }
@@ -86,10 +87,16 @@ function generateDAQUnitOptions() {
   var optionsToProvide = [
     "Hz", "kHz", "MHz", "GHz" 
   ];
+  const defaultVal = "GHz";
 
   var options = [];
   optionsToProvide.forEach(function(option) {
-    options.push(<option value={option}>{option}</option>);
+    if (option === defaultVal) {
+      options.push(<option value={option} selected>{option}</option>);
+    }
+    else {
+      options.push(<option value={option}>{option}</option>);
+    }
   });
 
   return options;

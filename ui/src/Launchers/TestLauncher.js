@@ -1,9 +1,13 @@
 import React from 'react';
 
-function TestLauncher() {
-  return (
-      <div>Test Launcher</div>
-  );
+class TestLauncher extends React.Component {
+  render() {
+    return (
+        <div class="tile is-vertical">
+          Test Launcher
+        </div>
+    );
+  }
 }
 
 export default TestLauncher;
