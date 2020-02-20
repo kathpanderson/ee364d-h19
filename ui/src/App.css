@@ -1,16 +1,32 @@
 .App {
   text-align: center;
+  padding: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.option-label {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.option-unit {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.is-custom-tile {
+  padding: 0 0 5px 0 !important;
+}
+
+.subsection-title {
+  margin-left: 10px;
+}
+
+.test {
+  outline: 1px solid blue;
 }
 
 .App-header {
@@ -26,13 +42,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
