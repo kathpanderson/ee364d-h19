@@ -2,6 +2,8 @@ import React from 'react';
 
 const defaultSNRVal = 10;
 const defaultPixelVal = 128;
+const defaultDAQSamplingVal = 2;
+const defaultDAQSamplingUnit = "kHz";
 
 function ProcessingParameters() {
   return (
@@ -58,7 +60,7 @@ function DAQParams() {
       <div class="tile is-child option-label">Sampling Rate:</div>
       <div class="tile is-2 field is-marginless">
         <div class="control">
-          <textarea class="textarea has-fixed-size" rows="1" placeholder={defaultSNRVal}></textarea>
+          <textarea class="textarea has-fixed-size" rows="1" placeholder={defaultDAQSamplingVal}></textarea>
         </div>
       </div>
       <div class="tile is-child option-unit">
@@ -87,11 +89,10 @@ function generateDAQUnitOptions() {
   var optionsToProvide = [
     "Hz", "kHz", "MHz", "GHz" 
   ];
-  const defaultVal = "GHz";
 
   var options = [];
   optionsToProvide.forEach(function(option) {
-    if (option === defaultVal) {
+    if (option === defaultDAQSamplingUnit) {
       options.push(<option value={option} selected>{option}</option>);
     }
     else {

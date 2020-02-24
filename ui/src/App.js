@@ -1,14 +1,14 @@
 import React from 'react';
-import ParametersPanel from './ParametersPanel.js';
-import LauncherPanel from './LauncherPanel';
+import ParametersParent from './Parameters/ParametersParent.js';
+import LauncherParent from './Launchers/LauncherParent';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <div class="columns">
-        <ParametersPanel/>
-        <LauncherPanel/>
+        <ParametersParent/>
+        <LauncherParent/>
       </div>
     </div>
   );

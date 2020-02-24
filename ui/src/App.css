@@ -37,6 +37,11 @@
   outline: 1px solid blue;
 }
 
+.is-checkbox {
+  width: 12px;
+  height: 12px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

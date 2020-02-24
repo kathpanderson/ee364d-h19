@@ -1,15 +1,29 @@
 import React from 'react';
 
 function HardwareParameters() {
+  // TODO: Add warnings, way to enable/disable preamp
   return (
     <div class="tile is-vertical is-bordered-bottom">
       <div class="tile has-text-weight-bold">Hardware Parameters</div>
-      <div class="tile is-parent is-custom-tile">
-        <div className="tile is-child option-label">
-          Amp Order of Magnitude:
+      <div class="tile is-vertical">
+      <div class="tile subsection-title is-italic">Pre Amp</div>
+        <div class="tile is-parent is-custom-tile">
+          <div class="tile is-child option-label">
+            Enabled:
+          </div>
+          <div class="tile is-child option-unit">
+            <label>
+              <input type="checkbox" class="checkbox is-checkbox"/>
+            </label>
+          </div>
         </div>
-        <div className="tile is-child">
-          {gainDropDown()}
+        <div class="tile is-parent is-custom-tile">
+          <div class="tile is-child option-label">
+            Input Current Range:
+          </div>
+          <div class="tile is-child">
+            {gainDropDown()}
+          </div>
         </div>
       </div>
     </div>
