@@ -57,16 +57,20 @@ function DAQParams() {
     <div class="tile is-vertical">
       <div class="tile subsection-title is-italic">DAQ Parameters</div>
       <div class="tile is-parent is-custom-tile">
-      <div class="tile is-child option-label">Sampling Rate:</div>
-      <div class="tile is-2 field is-marginless">
-        <div class="control">
-          <textarea class="textarea has-fixed-size" rows="1" placeholder={defaultDAQSamplingVal}></textarea>
+        <div class="tile is-child option-label">Sampling Rate:</div>
+        <div class="tile is-2 field is-marginless">
+          <div class="control">
+            <textarea
+              class="textarea has-fixed-size"
+              rows="1"
+              placeholder={defaultDAQSamplingVal}
+            />
+          </div>
+        </div>
+        <div class="tile is-child option-unit">
+          {DAQUnitDropDown()}
         </div>
       </div>
-      <div class="tile is-child option-unit">
-        {DAQUnitDropDown()}
-      </div>
-    </div>
     </div>
   );
 }

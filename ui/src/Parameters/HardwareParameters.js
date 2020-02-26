@@ -13,7 +13,7 @@ function HardwareParameters() {
           </div>
           <div class="tile is-child option-unit">
             <label>
-              <input type="checkbox" class="checkbox is-checkbox"/>
+              <input type="checkbox" class="checkbox is-custom-checkbox"/>
             </label>
           </div>
         </div>
