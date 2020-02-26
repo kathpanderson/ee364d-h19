@@ -12,17 +12,18 @@
 # Outputs:	TimeSpaceData.csv
 #			ProcessedData.csv
 #			ProcessedData.mp4
-from Blocker import Blocker
-from Positioner import Positioner
-from normDFT import normDFT
-from Thresholder import Thresholder
-from ClusterFinder import ClusterFinder
-from Visualizer import Visualizer
-from DataOuter import DataOuter
-from MovieMaker import MovieMaker
+from Blocker2 import Blocker2
+#from Positioner2 import Positioner2
+#from normDFT import normDFT
+#from Thresholder import Thresholder
+#from ClusterFinder import ClusterFinder
+#from Visualizer import Visualizer
+#from DataOuter import DataOuter
+#from MovieMaker import MovieMaker
+#import sys
 
-
-def Positioner(SNRphoto1, SNRphoto2, SNRcurrent1, SNRcurrent2, SNRtipBias, pixelsX, pixelsY):
+"""
+#(SNRphoto1, SNRphoto2, SNRcurrent1, SNRcurrent2, SNRtipBias, pixelsX, pixelsY):
 	# open rawData and place into blocked off 3d array (x,y,t)
 	with open('RawData.csv') as csvfile:
 		RawData = np.asarray(list(csv.reader(csvfile, delimiter=','))[1:], dtype=np.float32)
@@ -41,5 +42,26 @@ def Positioner(SNRphoto1, SNRphoto2, SNRcurrent1, SNRcurrent2, SNRtipBias, pixel
 		visual = Visualizer(clusterCenterts)
 		DataOuter(visual)
 		MovieMaker(visual)
-		return 1
-	return 0
+"""
+InputLVM = 'sinewave.lvm'
+rawData = 'rawData.csv'
+processedData = 'processedData.csv'
+NumChannels = 4
+pixelsX = 128
+pixelsY = 128
+dataSelect = 1 # 1=Tip Bias, 2=PhototdetectorA(Current) , 3=PhototdetectorB(Current) 
+
+lvm_Reader(InputLVM, rawData, NumChannels)
+with open(rawData,'r') as csvfile:
+	RawData = np.asarray(list(csv.reader(csvfile, delimiter=','))[1:], dtype=np.float32)	
+	BlockedData = Blocker(RawData[0], RawData[1], pixelsX, pixelsY) # positon in 0, data in 1
+	ReformData = []
+	for t in range(len(BlockedData[0][0])):
+		for x in range(len(BlockedData)):
+			for y in range(len(BlockedData[x])):
+				ReformData.append([x,y,BlockedData[x][y][t]])
+
+	with open(processedData, 'w', newline='') as myfile:
+		wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+		for row in ReformData:
+			wr.writerow(row)

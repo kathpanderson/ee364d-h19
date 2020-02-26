@@ -1,5 +1,4 @@
 import numpy as np
-
 # function returns list BlockedData, a space-time seperated verstion of the data
 # highest list is x direction
 # next highest is y direction
