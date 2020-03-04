@@ -1,4 +1,5 @@
 import React from 'react';
+import { SectionTitle } from '../lib.js';
 
 const defaultSNRVal = 10;
 const defaultPixelVal = 128;
@@ -7,8 +8,8 @@ const defaultDAQSamplingUnit = "kHz";
 
 function ProcessingParameters() {
   return (
-      <div class="tile is-vertical">
-        <div class="tile has-text-weight-bold">Processing Parameters</div>
+      <div class="tile is-vertical is-parent">
+        <SectionTitle title="Processing Parameters"/>
         {SNRParams()}
         {ImageParams()}
         {DAQParams()}
@@ -16,13 +17,18 @@ function ProcessingParameters() {
   );
 }
 
-function generateTextParam(name, defaultVal, unit) {
+function generateTextParam(name, defaultVal, unit, id) {
   return (
     <div class="tile is-parent is-custom-tile">
       <div class="tile is-child option-label">{name}:</div>
       <div class="tile is-2 field is-marginless">
         <div class="control">
-          <textarea class="textarea has-fixed-size" rows="1" placeholder={defaultVal}></textarea>
+          <textarea 
+            class="textarea has-fixed-size"
+            rows="1"
+            defaultValue={defaultVal}
+            id={id}
+          ></textarea>
         </div>
       </div>
       <div class="tile is-child option-unit">{unit}</div>
@@ -34,10 +40,10 @@ function SNRParams() {
   return (
     <div class="tile is-vertical">
       <div class="tile subsection-title is-italic">SNR</div>
-      {generateTextParam("Photodetector 1", defaultSNRVal, "dB")}
-      {generateTextParam("Photodetector 2", defaultSNRVal, "dB")}
-      {generateTextParam("Tip Current", defaultSNRVal, "dB")}
-      {generateTextParam("Tip Bias", defaultSNRVal, "dB")}
+      {generateTextParam("Photodetector 1", defaultSNRVal, "dB", "photo1Val")}
+      {generateTextParam("Photodetector 2", defaultSNRVal, "dB", "photo2Val")}
+      {generateTextParam("Tip Current", defaultSNRVal, "dB", "tipCurrentVal")}
+      {generateTextParam("Tip Bias", defaultSNRVal, "dB", "tipBiasVal")}
     </div>
   );
 }
@@ -46,8 +52,8 @@ function ImageParams() {
   return (
     <div class="tile is-vertical">
       <div class="tile subsection-title is-italic">Image Dimensions</div>
-      {generateTextParam("x", defaultPixelVal, "pixels")}
-      {generateTextParam("y", defaultPixelVal, "pixels")}
+      {generateTextParam("x", defaultPixelVal, "pixels", "imageXVal")}
+      {generateTextParam("y", defaultPixelVal, "pixels", "imageYVal")}
     </div>
   );
 }
@@ -63,7 +69,8 @@ function DAQParams() {
             <textarea
               class="textarea has-fixed-size"
               rows="1"
-              placeholder={defaultDAQSamplingVal}
+              defaultValue={defaultDAQSamplingVal}
+              id="daqSamplingVal"
             />
           </div>
         </div>
@@ -80,7 +87,7 @@ function DAQUnitDropDown() {
     <div class="field">
       <div class="control">
         <div class="select">
-          <select>
+          <select id="daqSamplingUnit">
             {generateDAQUnitOptions()}
           </select>
         </div>

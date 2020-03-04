@@ -1,11 +1,13 @@
 import React from 'react';
+import { SectionTitle, CustomButton } from '../lib.js';
 
 class ProcessingLauncher extends React.Component {
   render() {
     return (
         <div class="tile is-vertical is-bordered-bottom is-parent">
+          <SectionTitle title="Process Data"/>
           {this.fileSelector()}
-          {this.goButton()}
+          <CustomButton name="Start Processing"/>
           <div class="tile is-parent is-custom-tile is-hidden">
             Progress bar
           </div>
@@ -25,16 +27,6 @@ class ProcessingLauncher extends React.Component {
               placeholder="custom/file/path/here"
             />
           </div>
-        </div>
-      </div>
-    )
-  }
-
-  goButton() {
-    return (
-      <div class="tile is-parent is-custom-tile">
-        <div class="tile is-child">
-          <button>Start Processing</button>
         </div>
       </div>
     )

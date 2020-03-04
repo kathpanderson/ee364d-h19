@@ -1,10 +1,11 @@
 import React from 'react';
+import { SectionTitle } from '../lib.js';
 
 function HardwareParameters() {
   // TODO: Add warnings, way to enable/disable preamp
   return (
-    <div class="tile is-vertical is-bordered-bottom">
-      <div class="tile has-text-weight-bold">Hardware Parameters</div>
+    <div class="tile is-vertical is-bordered-bottom is-parent">
+      <SectionTitle title="Hardware Parameters"/>
       <div class="tile is-vertical">
       <div class="tile subsection-title is-italic">Pre Amp</div>
         <div class="tile is-parent is-custom-tile">
@@ -13,7 +14,11 @@ function HardwareParameters() {
           </div>
           <div class="tile is-child option-unit">
             <label>
-              <input type="checkbox" class="checkbox is-custom-checkbox"/>
+              <input
+                type="checkbox"
+                class="checkbox is-custom-checkbox"
+                id="preampEnabledVal"
+              />
             </label>
           </div>
         </div>
@@ -35,7 +40,7 @@ function gainDropDown() {
     <div class="field">
       <div class="control">
         <div class="select">
-          <select>
+          <select id="preampVal">
             {generateGainOptions()}
           </select>
         </div>

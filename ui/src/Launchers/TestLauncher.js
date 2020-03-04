@@ -1,12 +1,19 @@
 import React from 'react';
+import {
+  SectionTitle,
+  CustomButton,
+  getHardwareArgsStr,
+  getProcessingArgsStr
+} from '../lib.js';
 
 class TestLauncher extends React.Component {
   render() {
     return (
-        <div class="tile is-vertical is-bordered-bottom">
+        <div class="tile is-parent is-vertical is-bordered-bottom">
+          <SectionTitle title="Run Test"/>
           {this.filepathOptions()}
           {this.visualizerOptions()}
-            {this.startButton()}
+          <CustomButton name="Start Test" onClickEvent={this.launchTest}/>
           <div class="tile is-parent is-custom-tile is-hidden">
             Progress bar
           </div>
@@ -47,14 +54,9 @@ class TestLauncher extends React.Component {
     )
   }
 
-  startButton() {
-    return (
-      <div class="tile is-parent is-custom-tile">
-        <div class="tile is-child">
-          <button>Start Test</button>
-        </div>
-      </div>
-    )
+  launchTest() {
+    var hardwareArgs = getHardwareArgsStr();
+    var processingArgs = getProcessingArgsStr();
   }
 }
 

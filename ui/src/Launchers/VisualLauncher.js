@@ -1,10 +1,12 @@
 import React from 'react';
+import { SectionTitle, CustomButton } from '../lib.js';
 
 class VisualLauncher extends React.Component {
   render() {
     return (
         <div class="tile is-vertical is-bordered-bottom is-parent">
-          {this.launchButton()}
+          <SectionTitle title="Visualizer"/>
+          <CustomButton name="Launch Visualizer"/>
         </div>
     );
   }
