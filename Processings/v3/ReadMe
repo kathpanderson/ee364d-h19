@@ -1,2 +1,11 @@
 Final Processing ~ PRODUCTION READY ONLY
-All files require testing with real or synthetic data for testing report.
+All files will require testing with real or synthetic data for testing report.
+--main is under construction till 3/23
+|-|-testing to do
+--ProcessingCaller
+|-|-testing to document
+--positioner2
+--blocker2
+--normDFT
+--clusterer
+--nptdmstest
