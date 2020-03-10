@@ -9,3 +9,4 @@ All files will require testing with real or synthetic data for testing report.
 --normDFT
 --clusterer
 --nptdmstest
+--FIRwindowFilter
