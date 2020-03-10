@@ -19,14 +19,14 @@ def Blocker2(InPos, InData, pixelsX, pixelsY):
 	positions = Positioner2(InPos,pixelsX,pixelsY)
 	for k in range(len(InData)):
 		BlockedData[positions[0][k]][positions[1][k]].append(InData[k])
-		# Find the maximum length of a time series
-		maxLen = 0
-		for i in range(pixelsX):
-			for j in range(pixelsY):
-				if len(BlockedData[i][j]) > maxLen:
-					maxLen = len(BlockedData[i][j])
-		# zero pad all shorter time series
-		for i in range(pixelsX):
-			for j in range(pixelsY):
-					BlockedData[i][j].extend([0]*(maxLen-len(BlockedData[i][j])))
+	# Find the maximum length of a time series
+	maxLen = 0
+	for i in range(pixelsX):
+		for j in range(pixelsY):
+			if len(BlockedData[i][j]) > maxLen:
+				maxLen = len(BlockedData[i][j])
+	# zero pad all shorter time series
+	for i in range(pixelsX):
+		for j in range(pixelsY):
+				BlockedData[i][j].extend([0]*(maxLen-len(BlockedData[i][j])))
 	return BlockedData
