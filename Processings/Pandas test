@@ -1,5 +1,0 @@
-import pandas
-
-with open('Position.csv') as posFile:
-	posRead = pandas.read_csv(posFile,converters={"TimeX":int})
-	print(posRead)
