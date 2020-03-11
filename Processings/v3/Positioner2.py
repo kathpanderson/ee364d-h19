@@ -13,7 +13,7 @@ def Positioner2(x,pixelsX,pixelsY):
 	positions = []
 	xFiltered = FIRwindowFilter(x,4000000.0,5.0) # signal, sampling_rate(Hz) cutoff(Hz)
 	x = (x-np.min(x))
-	x = x*pixelsX/max(x)
+	x = x*(pixelsX-1)/max(x)
 	x = [int(i) for i in x]
 	downsample = 50
 	xDown = x[::downsample]
@@ -32,7 +32,7 @@ def Positioner2(x,pixelsX,pixelsY):
 		prevSign = dx[i]
 		for j in range(downsample+len(x)%downsample):
 			y[j+downsample*i] = prevY
-	y = y*pixelsY/max(y)
+	y = y*(pixelsY-1)/max(y)
 	y = [int(i) for i in y]
 	#plt.plot(y)
 	#plt.show()

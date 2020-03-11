@@ -37,6 +37,7 @@ def make_array(dimensions):
 # outputs: data threshold-ed
 # function definition: to find the threshold value of the signal
 def thresholder(n_spm_dB, snr_spm_dB, noiseRejection, data):
+    print("Start thresholder")
     # Create output structure
     output_data = []
     for freq in range(0,len(data[0][0])):

@@ -9,5 +9,13 @@ def getData(filePath):
 	for group in tdms_file.groups():
 		for channel in tdms_file.group_channels(group):
 			SPM.append(channel.data)
-#print(len(channel.data))''
+			#print(len(channel.data), "in channel")''
 	return SPM
+
+def main():
+	InputTDMS = 'fourChannelSineWave.tdms'
+	dataOpened = getData(InputTDMS):
+	print("shape of opened data: ", np.shape(dataOpened))
+
+if __name__ == '__main__':
+    main()

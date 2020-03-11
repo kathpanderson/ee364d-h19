@@ -5,25 +5,57 @@
 # A threshold is then taken to statistically eliminate data points likely to be noise
 # The remaining points are clustered in each frequency using meanshift
 # The clusters are then visualized with access to the GUI
-# Inputs:	SNR for Photdetector #1, Photdetector #2, Current #1, Current #2, Tip Bias
+# CURRENTLY PROCESSES ONE CHANNEL
+# Inputs:	SNR for Photdetector #1, Photdetector #2, Current
 #			number of X pixels, and number of Y pixels
 #			Positions.csv
 #			RawData.csv
 # Outputs:	TimeSpaceData.csv
 #			ProcessedData.csv
 #			ProcessedData.mp4
-#from Blocker2 import Blocker2
 from nptdmsTest import getData
 from Blocker2 import Blocker2
-import matplotlib.pyplot as plt
-#from Positioner2 import Positioner2
-#from normDFT import normDFT
-#from Thresholder import Thresholder
-#from ClusterFinder import ClusterFinder
+from normDFT import normDFT
+from thresholder import thresholder
+from ClusterFinder import ClusterFinder
 #from Visualizer import Visualizer
-#from DataOuter import DataOuter
 #from MovieMaker import MovieMaker
-#import sys
+
+def Freq_Clusterer(InputTDMS,pixelsX,pixelsY,noise,SNR,select,OutputCSV,OutputMP4):
+	RawData = getData(InputLVM)
+	BlockedData = Blocker2(RawData[2], RawData[select], pixelsX, pixelsY) # positon in 2, data in (0=current, 1=photodetector) ////Change with what Clara Tells me!!!!!
+	print("DONE BLOCKING Shape",BlockedData.shape)
+	
+	# fourier transform time axis of 3D array into (x,y,f)
+	N = len(blockedData[0][0])	#Number of points in time/freq axis
+	for i in range(pixelsX):	# blackman window may not be best choice
+		for j in range(pixelsY):
+			blockedData[i][j] = normDFT(blockedData[i][j])#np.blackman(N),N)#np.fft.fft(blockedData[i][j]*np.blackman(N))
+	N = N/2
+
+	noiseRejection = 1 
+	threshedData = thresholder(noise, SNR, noiseRejection, data)
+	clusterCenterts = ClusterFinder(threshedData,N)
+
+	with open(OutputCSV, 'w', newline='') as myfile:
+			wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+			for row in clusterCenterts:
+				wr.writerow(row)
+
+
+def main():
+	InputTDMS = 'fourChannelSineWave.tdms'
+	pixelsX = 128
+	pixelsY = 128
+	noise = -2 #dB
+	SNR = 10 #dB
+	select = 1
+	OutputCSV = 'processedData.csv'
+	OutputMP4 = 'processedData.mp4'
+	Freq_Clusterer(InputTDMS,pixelsX,pixelsY,noise,SNR,select,OutputCSV,OutputMP4)
+
+if __name__ == '__main__':
+    main()
 
 """
 #(SNRphoto1, SNRphoto2, SNRcurrent1, SNRcurrent2, SNRtipBias, pixelsX, pixelsY):
@@ -45,23 +77,9 @@ import matplotlib.pyplot as plt
 		visual = Visualizer(clusterCenterts)
 		DataOuter(visual)
 		MovieMaker(visual)
-"""
-InputLVM = 'fourChannelSineWave.tdms'
-#InputLVM = 'XData02282020_2.tdms'
-rawData = 'rawData.csv'
-processedData = 'processedData.csv'
-NumChannels = 4
-pixelsX = 128
-pixelsY = 128
-dataSelect = 1 # 1=Tip Bias, 2=PhototdetectorA(Current) , 3=PhototdetectorB(Current) 
 
-#lvm_Reader(InputLVM, rawData, NumChannels)
-RawData = getData(InputLVM)
+    	#plt.plot(dataSPM[0][0:1000])
 
-BlockedData = Blocker2(RawData[0], RawData[1], pixelsX, pixelsY) # positon in 0, data in 1
-print("DONE! Shape",BlockedData.shape)
-#plt.plot(dataSPM[0][0:1000])
-"""
 sToPlot =1000
 numberOfPlots = len(dataSPM[0])/sToPlot
 plt.ion()
@@ -73,19 +91,3 @@ for i in range(int(numberOfPlots)):
 """
 #for channel in dataSPM:
 #	print(len(channel))
-
-
-"""
-ReformData = []
-for t in range(len(BlockedData[0][0])):
-	for x in range(len(BlockedData)):
-		for y in range(len(BlockedData[x])):
-			ReformData.append([x,y,BlockedData[x][y][t]])
-"""
-"""
-	with open(processedData, 'w', newline='') as myfile:
-		wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-		for row in ReformData:
-			wr.writerow(row)
-"""
-			

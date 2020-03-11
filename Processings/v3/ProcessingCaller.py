@@ -15,22 +15,22 @@
 import sys
 import os.path
 
-numberOfExpectedArgs = 7
+numberOfExpectedArgs = 12
 arg = sys.argv[1:]
 if len(arg) = numberOfExpectedArgs:	
 	InputPath = arg[0]
 	InputName = arg[1]
-	Xpixels = arg[2]
-	Ypixels = arg[3]
 	outPath = arg[4]
 	outName = arg[5]
+	InputTDMS = os.path.join(InputPath, InputName+".tdms")
+	pixelsX = arg[2]
+	pixelsY = arg[3]
 	noise = arg[9] if arg[6] else arg[7]
 	SNR = arg[10] if arg[6] else arg[8]
-
-	InputTDMS = os.path.join(InputPath, InputName+".tdms")
+	select = arg[6]
 	OutputCSV = os.path.join(outPath, outName+".csv")
 	OutputMP4 = os.path.join(outPath, outName+".mp4")
-	FreqClusterer(InputTDMS,Xpixels,Ypixels,noise,SNR,OutputCSV,OutputMP4)
+	FreqClusterer(InputTDMS,pixelsX,pixelsY,noise,SNR,select,OutputCSV,OutputMP4)
 else:
 	print("insufficent arguments to FrequencyClusterer.py")
 print("Processing caller is finished. Returning to graphic interface.")
