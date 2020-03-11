@@ -29,7 +29,9 @@ def Positioner2(x,pixelsX,pixelsY):
 		if (dx[i] > prevSign):
 			#print("change")
 			prevY = prevY+1
-		prevSign = dx[i]
+			prevSign = dx[i]
+		if (dx[i] < prevSign):
+			prevSign = dx[i]
 		for j in range(downsample+len(x)%downsample):
 			y[j+downsample*i] = prevY
 	y = y*(pixelsY-1)/max(y)
