@@ -14,7 +14,7 @@ def getData(filePath):
 
 def main():
 	InputTDMS = 'fourChannelSineWave.tdms'
-	dataOpened = getData(InputTDMS):
+	dataOpened = getData(InputTDMS)
 	print("shape of opened data: ", np.shape(dataOpened))
 
 if __name__ == '__main__':
