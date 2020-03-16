@@ -12,7 +12,7 @@ def main():
     dimensions = 3
     data = make_array(dimensions)
     n_spm = 1 #dB
-    spm_snr = 10 #dB
+    spm_snr = 5 #dB
     noiseRejection = 1# number of noise standard deviations 
     output_data = thresholder(n_spm, spm_snr, noiseRejection, data)
     print("OUTPUT DATA")

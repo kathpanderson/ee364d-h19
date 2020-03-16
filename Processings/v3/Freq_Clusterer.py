@@ -16,14 +16,14 @@
 from nptdmsTest import getData
 from Blocker2 import Blocker2
 from normDFT import normDFT
-from Thresholder import thresholder
+from thresholder import thresholder
 from ClusterFinder import ClusterFinder
 #from Visualizer import Visualizer
 #from MovieMaker import MovieMaker
 
 def Freq_Clusterer(InputTDMS,pixelsX,pixelsY,noise,SNR,select,OutputCSV,OutputMP4):
-	RawData = getData(InputTDMS)
-	blockedData = Blocker2(RawData[2], RawData[select], pixelsX, pixelsY) # positon in 2, data in (0=current, 1=photodetector) ////Change with what Clara Tells me!!!!!
+	RawData = getData(InputLVM)
+	BlockedData = Blocker2(RawData[3], RawData[select], pixelsX, pixelsY) # positon in 3, data in (0=current, 1=photodetector) ////Change with what Clara Tells me!!!!!
 	print("DONE BLOCKING Shape",BlockedData.shape)
 	
 	# fourier transform time axis of 3D array into (x,y,f)
@@ -34,7 +34,7 @@ def Freq_Clusterer(InputTDMS,pixelsX,pixelsY,noise,SNR,select,OutputCSV,OutputMP
 	N = N/2
 
 	noiseRejection = 1 
-	threshedData = thresholder(noise, SNR, noiseRejection, blockedData)
+	threshedData = thresholder(noise, SNR, noiseRejection, data)
 	clusterCenterts = ClusterFinder(threshedData,N)
 
 	with open(OutputCSV, 'w', newline='') as myfile:

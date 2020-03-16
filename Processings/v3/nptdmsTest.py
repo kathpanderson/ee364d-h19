@@ -1,4 +1,5 @@
 from nptdms import TdmsFile
+import numpy as np
 
 def getData(filePath):
 	print("Start getData")
