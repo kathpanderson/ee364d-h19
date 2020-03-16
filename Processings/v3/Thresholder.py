@@ -7,31 +7,6 @@
 import numpy as np
 import math
 from numpy.random import rand
-
-def main():
-    dimensions = 3
-    data = make_array(dimensions)
-    n_spm = 1 #dB
-    spm_snr = 5 #dB
-    noiseRejection = 1# number of noise standard deviations 
-    output_data = thresholder(n_spm, spm_snr, noiseRejection, data)
-    print("OUTPUT DATA")
-    for i in range(len(output_data)):
-        print("Frequency: ", i)
-        for j in range(len(output_data[i])):
-            print(output_data[i][j])
-
-# import data in as a function
-def make_array(dimensions):
-    arr = np.zeros((dimensions, dimensions, dimensions))
-    for l in range(dimensions):
-        for m in range(dimensions):
-            for n in range(dimensions):
-                arr[l][m][n] = 20*math.log(rand(),10)
-    print("INPUT DATA")
-    print(arr,"\n")
-    return arr
-
 # function: threshold
 # inputs: n_spm (noise power of spm) and snr_spm (snr of spm) and array of form data[x][y][f]
 # outputs: data threshold-ed
@@ -61,6 +36,30 @@ def thresholder(n_spm_dB, snr_spm_dB, noiseRejection, data):
                 if data[i][j][freq] > thr:
                     output_data[freq].append([i, j, data[i][j][freq]]) #reorgonize as [f][point](x,y,valueF)
     return output_data
+
+def main():
+    dimensions = 3
+    data = make_array(dimensions)
+    n_spm = 1 #dB
+    spm_snr = 10 #dB
+    noiseRejection = 1# number of noise standard deviations 
+    output_data = thresholder(n_spm, spm_snr, noiseRejection, data)
+    print("OUTPUT DATA")
+    for i in range(len(output_data)):
+        print("Frequency: ", i)
+        for j in range(len(output_data[i])):
+            print(output_data[i][j])
+
+# import data in as a function
+def make_array(dimensions):
+    arr = np.zeros((dimensions, dimensions, dimensions))
+    for l in range(dimensions):
+        for m in range(dimensions):
+            for n in range(dimensions):
+                arr[l][m][n] = 20*math.log(rand(),10)
+    print("INPUT DATA")
+    print(arr,"\n")
+    return arr
 
 if __name__ == '__main__':
     main()

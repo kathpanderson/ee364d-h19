@@ -14,22 +14,29 @@
 #			ProcessedData.csv
 #			ProcessedData.mp4
 from nptdmsTest import getData
+from Positioner2 import Positioner2
 from Blocker2 import Blocker2
 from normDFT import normDFT
-from thresholder import thresholder
+from Thresholder import thresholder
 from ClusterFinder import ClusterFinder
 #from Visualizer import Visualizer
 #from MovieMaker import MovieMaker
 
 def Freq_Clusterer(InputTDMS,pixelsX,pixelsY,noise,SNR,select,OutputCSV,OutputMP4):
-	RawData = getData(InputLVM)
-	BlockedData = Blocker2(RawData[3], RawData[select], pixelsX, pixelsY) # positon in 3, data in (0=current, 1=photodetector) ////Change with what Clara Tells me!!!!!
-	print("DONE BLOCKING Shape",BlockedData.shape)
+	RawData = getData(InputTDMS)
+	positions = Positioner2(RawData[3],pixelsX)
+	pixelsYMessured = max(positions[1])+1
+	print("pixelsYMessured: ",pixelsYMessured)
+	#print("LAST Y: ", positions[1][len(positions[1])-1])
+	print("NUMBER OF POSITIONS: ", len(positions[0]))
+	print("NUMBER OF DATA 1: ", len(RawData[0]))
+	BlockedData = Blocker2(positions, RawData[select], pixelsX, pixelsYMessured) # positon in 3, data in (0=current, 1=photodetector)
+	#print("DONE BLOCKING Shape",BlockedData.shape)
 	
 	# fourier transform time axis of 3D array into (x,y,f)
 	N = len(blockedData[0][0])	#Number of points in time/freq axis
 	for i in range(pixelsX):	# blackman window may not be best choice
-		for j in range(pixelsY):
+		for j in range(pixelsYMessured):
 			blockedData[i][j] = normDFT(blockedData[i][j])#np.blackman(N),N)#np.fft.fft(blockedData[i][j]*np.blackman(N))
 	N = N/2
 
@@ -39,11 +46,13 @@ def Freq_Clusterer(InputTDMS,pixelsX,pixelsY,noise,SNR,select,OutputCSV,OutputMP
 
 	with open(OutputCSV, 'w', newline='') as myfile:
 			wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+			wr.writerow(["Clusters"])
 			for row in clusterCenterts:
 				wr.writerow(row)
 
 
 def main():
+	#InputTDMS = 'fourChannelMinute.tdms'
 	InputTDMS = 'fourChannelSineWave.tdms'
 	pixelsX = 128
 	pixelsY = 128
@@ -56,38 +65,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-"""
-#(SNRphoto1, SNRphoto2, SNRcurrent1, SNRcurrent2, SNRtipBias, pixelsX, pixelsY):
-	# open rawData and place into blocked off 3d array (x,y,t)
-	with open('RawData.csv') as csvfile:
-		RawData = np.asarray(list(csv.reader(csvfile, delimiter=','))[1:], dtype=np.float32)
-		positions = Positioner()
-		dataSelect = 2 # 0=Phototdetector(Current) 1,1=Phototdetector(Current) 2=Tip Bias
-		blockedData = Blocker(positions, RawData[2*dataSelect], InData[2*dataSelect+1], pixelsX, pixelsY)
-		# fourier transform time axis of 3D array into (x,y,f)
-		N = blockedData[0][0].length()	#Number of points in time/freq axis
-		for i in range(pixelsX):	# blackman window may not be best choice
-			for j in range(pixelsY):
-				blockedData[i][j] = normDFT(blockedData[i][j]np.blackman(N),N)#np.fft.fft(blockedData[i][j]*np.blackman(N))
-		N = N/2
-
-		threshedData = Thresholder(blockedData,N)
-		clusterCenterts = ClusterFinder(threshedData,N)
-		visual = Visualizer(clusterCenterts)
-		DataOuter(visual)
-		MovieMaker(visual)
-
-    	#plt.plot(dataSPM[0][0:1000])
-
-sToPlot =1000
-numberOfPlots = len(dataSPM[0])/sToPlot
-plt.ion()
-for i in range(int(numberOfPlots)):
-	plt.plot(dataSPM[0][sToPlot*i:sToPlot*(i+1)])
-	plt.draw()
-	plt.pause(1)
-	plt.clf()
-"""
-#for channel in dataSPM:
-#	print(len(channel))
