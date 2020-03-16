@@ -1,12 +1,18 @@
 Final Processing ~ PRODUCTION READY ONLY
 All files will require testing with real or synthetic data for testing report.
 --main is under construction till 3/23
-|-|-testing to do
+testing to do
 --ProcessingCaller
-|-|-testing to document
---positioner2
 --blocker2
+
+testing to document
 --normDFT
+
+testing finished
+--positioner2
 --clusterer
 --nptdmstest
 --FIRwindowFilter
+
+__________________
+BLOCKER CURRENTLY DOES NOT FINISH RUNNING. SEE "Almost Production Ready"
