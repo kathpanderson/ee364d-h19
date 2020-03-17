@@ -29,7 +29,7 @@ def Blocker2(positions, InData, pixelsX, pixelsYMessured):
 			maxLen = maxLenNew
 	print("maxLen: ", maxLen)
 
-	newArray = np.zeros((pixelsX,pixelsYMessured,maxLen), dtype=float32)
+	newArray = np.zeros((pixelsX,pixelsYMessured,maxLen), dtype=np.float32)
 	# zero pad all shorter time series
 	"""for i in range(pixelsX):
 		for j in range(pixelsYMessured):
