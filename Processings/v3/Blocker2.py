@@ -68,6 +68,27 @@ def Blocker2(positions, InData, pixelsX, pixelsYMessured):
 			for e in range(minLength):
 				newArray[i][j][e] = BlockedData[i][j][e]"""
 
+	"""The way I see it, there are 4 options for adding the InData to BlockedData now:
+		1) I sort the positions array and then I can add the InData to each position one
+			by one in order. That's risky cause the arrays are obviously big, but mostly
+			because the InData indices would have to be switched around too to the correct
+			positions as the positions array was sorted. This option however uses the least
+			memory at the cost of time.
+		2) I use an extra numpy array of pixelsX by pixelsYMessured size to store what index
+			we're on in each position where the next bit of InData will go in that part. Drawback:
+			uses way more memory.
+		3) We make the next position where an InData will get added float32.max. Drawbacks:
+			each time you want to add something, you have to iterate through the array to find
+			where the float32.max is. Also at the end all the float32.maxes have to be removed.
+			Also there is added complexity with if you actually fill up that position with maxLen
+			values.
+		4) I make BlockedData a 2D numpy array of pixelsX by pixelsYMessured, and then somehow
+			for the first value at each position I'd have to create a numpy array of size one
+			there for it, and then append the rest of the values as they come. And then we'd
+			have to append 0s all the way to maxLen as before. However, I don't know how to
+			manipulate numpy arrays well enough to figure out how to create the initial data
+			structure for this."""
+
 
 
 	print("done with blocking")
