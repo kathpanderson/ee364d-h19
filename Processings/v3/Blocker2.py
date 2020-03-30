@@ -26,7 +26,7 @@ def Blocker2(positions, InData, pixelsX, pixelsYMessured):
 
 	# If you still want an arbitrary maxLen, this would be the for loop to do it in @Vic
 	for x in range(pixelsX):
-		for y in range(pixelsYMessured):
+		for y in range(9,10):
 			if(lenArray[x][y] > maxLen):
 				maxLen = lenArray[x][y]
 
@@ -44,7 +44,7 @@ def Blocker2(positions, InData, pixelsX, pixelsYMessured):
 	print("maxLen: ", maxLen)"""
 
 	try:
-		BlockedData = np.zeros((pixelsX,pixelsYMessured,maxLen), dtype=np.float32)
+		BlockedData = np.zeros((pixelsX,pixelsYMessured), dtype=np.float32)
 	except Exception as ex:
 		# Memory error. Will have to use file I/O
 		print(ex)
@@ -89,7 +89,28 @@ def Blocker2(positions, InData, pixelsX, pixelsYMessured):
 			manipulate numpy arrays well enough to figure out how to create the initial data
 			structure for this."""
 
+	for k in range(len(InData)):
+		if(BlockedData[positions[0][k]][positions[1][k]] == 0):
+			# the first element to be added to this position
+			BlockedData[positions[0][k]][positions[1][k]] = np.array([InData[k]], dtype=np.float32)
+		else:
+			np.append(BlockedData[positions[0][k]][positions[1][k]], [InData[k]])
+
+	for i in range(pixelsX):
+		for j in range(pixelsYMessured):
+			# dataLength = BlockedData[positions[0][k]][positions[1][k]].size
+			dataLength = BlockedData[i][j].size
+			if maxLen > dataLength:
+				for e in range(maxLen-dataLength):
+					# np.append(BlockedData[positions[0][k]][positions[1][k]], [0])
+					np.append(BlockedData[i][j], [0])
+			elif maxLen < dataLength:
+				print("BlockedData[" + str(i) + "][" + str(j) + "] = " + str(BlockedData[i][j]))
+				print("dataLength = " + str(dataLength))
+				print("maxLen = " + str(maxLen))
+				print("BlockedData[positions[0][k]][positions[1][k]] = " + str(BlockedData[positions[0][k]][positions[1][k]]))
+				BlockedData[i][j] = BlockedData[i][j][:maxLen]
 
 
 	print("done with blocking")
-	return newArray
+	return BlockedData
