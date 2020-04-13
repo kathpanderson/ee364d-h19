@@ -52,8 +52,8 @@ def Freq_Clusterer(InputTDMS,pixelsX,pixelsY,noise,SNR,select,OutputCSV,OutputMP
 
 
 def main():
-	#InputTDMS = 'fourChannelMinute.tdms'
-	InputTDMS = 'fourChannelSineWave.tdms'
+	InputTDMS = 'FourChannelMinute.tdms'
+	#InputTDMS = 'fourChannelSineWave.tdms'
 	pixelsX = 128
 	pixelsY = 128
 	noise = -2 #dB

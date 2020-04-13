@@ -48,6 +48,7 @@ def Blocker2(positions, InData, pixelsX, pixelsYMessured):
 	except Exception as ex:
 		# Memory error. Will have to use file I/O
 		print(ex)
+		return(-1)
 
 	# zero pad all shorter time series
 	"""for i in range(pixelsX):
