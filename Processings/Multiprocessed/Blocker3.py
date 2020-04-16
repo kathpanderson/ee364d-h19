@@ -2,6 +2,19 @@ import numpy as np
 from FIRwindowFilter import FIRwindowFilter
 from nptdmsTest import getData
 import matplotlib.pyplot as plt
+from multiprocessing import Pool
+
+def zerosAndOnes(element):
+	if(element < 0):
+		return 0
+	else:
+		return 1
+
+def extendWithZeros(x, maxLength, yPixels):
+	for j in range(yPixels):
+		x[j].extend([0.0]*(maxLength-len(x[j])))
+	return x
+
 # function returns list of tuples for the descrete positions
 # highest list is x direction
 # next highest is y directio
@@ -25,7 +38,11 @@ def Blocker3(x,InData,pixelsX,pixelsY):
 	downsample = 50000                    # Assuming trace is 1Hz, DS=400000 gives 10 points/trace
 	xDown = xFil[::downsample]
 	dx = np.diff(xDown)
-	dx = [0 if i < 0 else 1 for i in dx]
+	# dx = [0 if i < 0 else 1 for i in dx]
+	with Pool() as pool:
+		dx = pool.map(zerosAndOnes, (i for i in dx))
+		pool.close()
+		pool.join()
 	print("Start blockering in X and Y")
 	prevSign = dx[0]
 	prevY = 0
@@ -59,6 +76,10 @@ def Blocker3(x,InData,pixelsX,pixelsY):
 	for i in range(pixelsX):
 		for j in range(pixelsY):
 			BlockedData[i][j].extend([0.0]*(maxLen-len(BlockedData[i][j])))
+	# with Pool() as pool:
+		# BlockedData = pool.starmap(extendWithZeros, [(BlockedData[i], maxLen, pixelsY) for i in range(pixelsX)])
+		# pool.close()
+		# pool.join()
 	return BlockedData
 
 def main():

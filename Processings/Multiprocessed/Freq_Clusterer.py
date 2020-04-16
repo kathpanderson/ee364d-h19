@@ -18,6 +18,7 @@ from Blocker3 import Blocker3
 from normDFT import normDFT
 from Thresholder import Thresholder
 from ClusterFinder import ClusterFinder
+from multiprocessing import Pool
 #from Visualizer import Visualizer
 #from MovieMaker import MovieMaker
 
@@ -30,11 +31,20 @@ def Freq_Clusterer(InputTDMS,pixelsX,pixelsY,noise,SNR,select,OutputCSV,OutputMP
 	print("starting fourier Transform")
 	# fourier transform time axis of 3D array into (x,y,f)
 	N = len(BlockedData[0][0])	#Number of points in time/freq axis
-	for i in range(pixelsX):	# blackman window may not be best choice
-		for j in range(pixelsY):
-			#for item in BlockedData[0][0]:
-    		#	float(item)
-			BlockedData[i][j] = normDFT(BlockedData[i][j],N)#*np.blackman(N),N)#
+	# for i in range(pixelsX):	# blackman window may not be best choice
+		# for j in range(pixelsY):
+			# for item in BlockedData[0][0]:
+    			# float(item)
+			# BlockedData[i][j] = normDFT(BlockedData[i][j],N)#*np.blackman(N),N)#
+	with Pool() as pool:
+		BlockedDataResults = pool.starmap(normDFT, [(BlockedData[i][j], N) for i in range(pixelsX) for j in range(pixelsY)])
+		index = 0
+		for x in range(pixelsX):
+			for y in range(pixelsY):
+				BlockedData[x][y] = BlockedDataResults[index]
+				index += 1
+		pool.close()
+		pool.join()
 	N = int(N/2)
 
 	noiseRejection = 1 

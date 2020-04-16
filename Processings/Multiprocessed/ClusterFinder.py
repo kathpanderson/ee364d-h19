@@ -10,7 +10,7 @@ import os
 def mainFinder(element):
 	ms = MeanShift()
 	ms.fit(np.asarray(element))
-	print("Hi I'm process " + str(os.getpid()))
+	# print("Hi I'm process " + str(os.getpid()))
 	return ms.cluster_centers_
 
 def ClusterFinder(threshedData,N):
@@ -25,6 +25,8 @@ def ClusterFinder(threshedData,N):
 # 		clusterCenterts[i] = ms.cluster_centers_
 	with Pool() as pool:
 		clusterCenterts = pool.map(mainFinder, (threshedData[i] for i in range(N)))
+		pool.close()
+		pool.join()
 
 	return clusterCenterts
 
