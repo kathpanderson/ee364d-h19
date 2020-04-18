@@ -19,6 +19,7 @@ from normDFT import normDFT
 from Thresholder import Thresholder
 from ClusterFinder import ClusterFinder
 from multiprocessing import Pool
+import csv
 #from Visualizer import Visualizer
 #from MovieMaker import MovieMaker
 
