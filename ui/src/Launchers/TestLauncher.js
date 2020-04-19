@@ -1,9 +1,11 @@
 import React from 'react';
+import { spawn } from 'child_process';
 import {
   SectionTitle,
   CustomButton,
   getHardwareArgsStr,
-  getProcessingArgsStr
+  getProcessingArgsStr,
+  launchLabview
 } from '../lib.js';
 
 class TestLauncher extends React.Component {
@@ -57,6 +59,11 @@ class TestLauncher extends React.Component {
   launchTest() {
     var hardwareArgs = getHardwareArgsStr();
     var processingArgs = getProcessingArgsStr();
+
+    console.log(hardwareArgs);
+    console.log(processingArgs);
+
+    // launchLabview();
   }
 }
 
