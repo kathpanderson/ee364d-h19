@@ -5,7 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import javax.swing.*;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 
 public class Controller {
@@ -42,6 +45,12 @@ public class Controller {
 
     @FXML
     private Button runTestButton;
+
+    @FXML
+    private Button runProcessingButton;
+
+    @FXML
+    private Button runVisualizerButton;
 
     // Maps text in the pre amp current range selector to a value
     // to pass to the DAQ for data collection.
@@ -116,10 +125,25 @@ public class Controller {
             // Reset button to original state
             runTestButton.setText("Processing Data...");
             runTestButton.setStyle("");
-//            runTestButton.setDisable(true);  // FIXME disable again!
+            runTestButton.setDisable(true);  // FIXME disable again!
 
-            // Launch processing stuff
+            // Execute processing stuff
+            executeProcessing();
+
+            // Processing done, clean up
+            runTestButton.setText("Start Test");
+            runTestButton.setDisable(false);
         }
+    }
+
+    @FXML
+    private void handleRunProcessing(ActionEvent event) {
+        executeProcessing();
+    }
+
+    @FXML
+    private void handleVisualizerLaunch(ActionEvent event) {
+        launchVisualizer();
     }
 
     private void launchDAQ() {
@@ -148,6 +172,28 @@ public class Controller {
             System.out.println("Failed to open executable");
             e.printStackTrace();
         }
+
+    }
+
+    private void executeProcessing() {
+        try {
+            String processingPath = System.getProperty("user.dir") + "\\processing\\main.py";  // TODO change to correct file
+            ProcessBuilder pb = new ProcessBuilder("python", "-u", processingPath, "main");
+            Process processing = pb.start();
+
+            int exitCode = processing.waitFor();  // wait for processing to end
+            System.out.println("Processing exited with code " + exitCode);
+
+        } catch(IOException e) {
+            System.out.println("Failed to open processing software");
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            System.out.println("Interrupted exception");
+            e.printStackTrace();
+        }
+    }
+
+    private void launchVisualizer() {
 
     }
 }

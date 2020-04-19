@@ -180,7 +180,7 @@
                                     <Button mnemonicParsing="false" text="Select File" />
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" styleClass="custom-button" text="Start Processing" />
+                              <Button fx:id="runProcessingButton" mnemonicParsing="false" onAction="#handleRunProcessing" styleClass="custom-button" text="Start Processing" />
                            </children>
                         </VBox>
                         <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="1.0" style="-fx-background-color: #666666;" />
@@ -191,7 +191,7 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" text="Launch Visualizer" />
+                              <Button fx:id="runVisualizerButton" mnemonicParsing="false" onAction="#handleVisualizerLaunch" text="Launch Visualizer" />
                            </children>
                         </VBox>
                      </children>
