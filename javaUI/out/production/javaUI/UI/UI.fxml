@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller">
+<AnchorPane fx:id="uiParent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller">
    <children>
       <SplitPane dividerPositions="0.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -148,15 +148,22 @@
                               </Label>
                               <HBox styleClass="section-item">
                                  <children>
-                                    <CheckBox mnemonicParsing="false" />
+                                    <CheckBox fx:id="customDataPathCheckbox" mnemonicParsing="false" />
                                     <Label styleClass="checkbox-label" text="Custom File Path:" />
-                                    <TextArea prefHeight="200.0" prefWidth="200.0" />
+                                    <TextArea fx:id="customDataPath" prefHeight="200.0" prefWidth="200.0" />
+                                    <Button fx:id="selectCustomDataPath" mnemonicParsing="false" onAction="#handleSelectCustomDataPath" text="Select" />
                                  </children>
                               </HBox>
                               <HBox styleClass="section-item">
                                  <children>
-                                    <CheckBox mnemonicParsing="false" />
-                                    <Label styleClass="checkbox-label" text="Launch visualizer on completion" />
+                                    <CheckBox fx:id="launchProcessingCheckbox" mnemonicParsing="false" />
+                                    <Label styleClass="checkbox-label" text="Launch processing" />
+                                 </children>
+                              </HBox>
+                              <HBox styleClass="section-item">
+                                 <children>
+                                    <CheckBox fx:id="launchVisualizerCheckbox" mnemonicParsing="false" />
+                                    <Label styleClass="checkbox-label" text="Launch visualizer" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0" styleClass="section-item">
@@ -174,10 +181,10 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="section-item">
+                              <HBox alignment="CENTER" styleClass="section-item">
                                  <children>
-                                    <Label id="fileToProcess" styleClass="checkbox-label" text="file/to/process" />
-                                    <Button mnemonicParsing="false" text="Select File" />
+                                    <Button fx:id="selectProcessFile" mnemonicParsing="false" onAction="#handleSelectProcessFile" text="Select File" />
+                                    <Label id="fileToProcess" fx:id="selectedProcessingFile" styleClass="checkbox-label" wrapText="true" />
                                  </children>
                               </HBox>
                               <Button fx:id="runProcessingButton" mnemonicParsing="false" onAction="#handleRunProcessing" styleClass="custom-button" text="Start Processing" />

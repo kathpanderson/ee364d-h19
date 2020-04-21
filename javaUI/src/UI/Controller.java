@@ -4,11 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 
 import javax.swing.*;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.LinkedHashMap;
 
 public class Controller {
@@ -52,6 +58,31 @@ public class Controller {
     @FXML
     private Button runVisualizerButton;
 
+    @FXML
+    private CheckBox launchProcessingCheckbox;
+
+    @FXML
+    private CheckBox launchVisualizerCheckbox;
+
+    @FXML
+    private AnchorPane uiParent;
+
+    @FXML
+    private Label selectedProcessingFile;
+
+    @FXML
+    private TextArea customDataPath;
+
+    @FXML
+    private CheckBox customDataPathCheckbox;
+
+    @FXML
+    private Button selectCustomDataPath;
+
+    private FileChooser fChooser;
+
+    private DirectoryChooser dChooser;
+
     // Maps text in the pre amp current range selector to a value
     // to pass to the DAQ for data collection.
     private LinkedHashMap<String, String> ampInputCurrentOptions;
@@ -80,8 +111,14 @@ public class Controller {
 
     private Process daqExe;
 
+    final String DEFAULT_DAQ_PATH = "";  // FIXME
+
     @FXML
     private void initialize() {
+        // Initialize file and directory choosers
+        fChooser = new FileChooser();
+        dChooser = new DirectoryChooser();
+
         // Populate map to hold all DAQ input current range options
         this.ampInputCurrentOptions = new LinkedHashMap<String, String>();
         for (int i = 0; i < inputCurrentVals.length; i++) {
@@ -99,6 +136,13 @@ public class Controller {
             "Hz", "kHz", "MHz", "GHz"
         ));
         daqSamplingRateUnit.setValue("kHz");
+
+        // Set default values for check boxes
+        launchProcessingCheckbox.setSelected(true);
+        launchVisualizerCheckbox.setSelected(true);
+
+        // Disable custom data path field
+        // customDataPath.setDisable(true);
     }
 
     // Keeps track if a test is in progress or not.
@@ -122,15 +166,46 @@ public class Controller {
             // Kill DAQ software
             this.daqExe.destroy();
 
-            // Reset button to original state
-            runTestButton.setText("Processing Data...");
-            runTestButton.setStyle("");
-            runTestButton.setDisable(true);  // FIXME disable again!
+            // Get data's destination path
+            File destinationDir = null;
+            customDataPathCheckbox.setSelected(true);  // FIXME for debugging!
+            if (customDataPathCheckbox.isSelected()) {
+                destinationDir = new File(customDataPath.getText());
+            }
+            else {
+                // TODO figure out where default data paths should go!
+            }
 
-            // Execute processing stuff
-            executeProcessing();
+            // Move raw data to destination
+            try {
+                Files.move(
+                        Paths.get(DEFAULT_DAQ_PATH),
+                        Paths.get(destinationDir.getAbsolutePath() + "")
+                );
+            } catch (IOException e) {
+                System.out.println("Failed to copy data to destination");
+                e.printStackTrace();
+            }
 
-            // Processing done, clean up
+            // Run processing on data if selected
+            if (launchProcessingCheckbox.isSelected()) {
+                runTestButton.setText("Processing Data...");
+                runTestButton.setStyle("");
+                runTestButton.setDisable(true);
+
+                // Execute processing stuff
+                executeProcessing();
+
+                // TODO add visualizer launch stuff
+                if (launchVisualizerCheckbox.isSelected()) {
+                    String datapath = destinationDir.getAbsolutePath() + "";  // FIXME
+                    File data = new File(datapath);
+                    launchVisualizer(data);
+                }
+
+            }
+
+            // Set button back to original state
             runTestButton.setText("Start Test");
             runTestButton.setDisable(false);
         }
@@ -143,7 +218,8 @@ public class Controller {
 
     @FXML
     private void handleVisualizerLaunch(ActionEvent event) {
-        launchVisualizer();
+        File toDisplay = selectFile();
+        launchVisualizer(toDisplay);
     }
 
     private void launchDAQ() {
@@ -175,6 +251,7 @@ public class Controller {
 
     }
 
+    // TODO: Add parameters!
     private void executeProcessing() {
         try {
             String processingPath = System.getProperty("user.dir") + "\\processing\\main.py";  // TODO change to correct file
@@ -193,7 +270,28 @@ public class Controller {
         }
     }
 
-    private void launchVisualizer() {
+    // TODO: Everything
+    private void launchVisualizer(File dataFile) {
+        System.out.println(dataFile.getAbsolutePath());
+    }
 
+    @FXML
+    private void handleSelectProcessFile(ActionEvent e) {
+        File selected = selectFile();
+        selectedProcessingFile.setText(selected.getAbsolutePath());
+    }
+
+    @FXML
+    private void handleSelectCustomDataPath(ActionEvent e) {
+        File destination = selectDirectory();
+        customDataPath.setText(destination.getAbsolutePath());
+    }
+
+    private File selectFile() {
+        return fChooser.showOpenDialog(uiParent.getScene().getWindow());
+    }
+
+    private File selectDirectory() {
+        return dChooser.showDialog(uiParent.getScene().getWindow());
     }
 }
