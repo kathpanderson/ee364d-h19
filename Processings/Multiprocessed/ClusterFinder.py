@@ -23,7 +23,7 @@ def ClusterFinder(threshedData,N):
 # 		ms = MeanShift()
 # 		ms.fit(np.asarray(threshedData[i]))
 # 		clusterCenterts[i] = ms.cluster_centers_
-	with Pool() as pool:
+	with Pool(maxtasksperchild = 500) as pool:
 		clusterCenterts = pool.map(mainFinder, (threshedData[i] for i in range(N)))
 		pool.close()
 		pool.join()

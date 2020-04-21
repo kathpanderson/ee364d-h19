@@ -7,15 +7,29 @@
 #outputs: normalized DFT of input and normalized frequency as well
 import numpy as np
 import matplotlib.pyplot as plt
+from multiprocessing import Pool
+
+
+def mainFunc(i, M):
+	if(i == 0.0):
+		return -300
+	else:
+		return 20*np.log10(i/M)
+
 
 def normDFT(xn,N):
     #nf = np.arange(0,0.5,(1/N))
     Xf = np.abs(np.fft.fft(xn))/(N/2)
     M = np.amax(Xf)
     normXf = [-300 if i == 0.0 else 20*np.log10(i/M) for i in Xf]
+    # with Pool() as pool:
+    	# normXf = pool.starmap(mainFunc, [(i, M) for i in Xf])
+    	# pool.close()
+    	# pool.join()
     #if M !=0:
     #	normXf = 20*np.log10(Xf[0:int(N/2)]/M)
     return normXf[0:int(N/2)] #[nf,normXf]
+
 
 def main():
 	N = 1000
@@ -30,3 +44,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
