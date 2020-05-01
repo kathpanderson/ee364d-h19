@@ -157,7 +157,7 @@
                               <HBox styleClass="section-item">
                                  <children>
                                     <CheckBox fx:id="launchProcessingCheckbox" mnemonicParsing="false" />
-                                    <Label styleClass="checkbox-label" text="Launch processing" />
+                                    <Label styleClass="checkbox-label" text="Process Data" />
                                  </children>
                               </HBox>
                               <HBox styleClass="section-item">
@@ -183,8 +183,8 @@
                               </Label>
                               <HBox alignment="CENTER" styleClass="section-item">
                                  <children>
+                                    <TextArea fx:id="selectedProcessingFile" prefHeight="200.0" prefWidth="200.0" />
                                     <Button fx:id="selectProcessFile" mnemonicParsing="false" onAction="#handleSelectProcessFile" text="Select File" />
-                                    <Label id="fileToProcess" fx:id="selectedProcessingFile" styleClass="checkbox-label" wrapText="true" />
                                  </children>
                               </HBox>
                               <Button fx:id="runProcessingButton" mnemonicParsing="false" onAction="#handleRunProcessing" styleClass="custom-button" text="Start Processing" />

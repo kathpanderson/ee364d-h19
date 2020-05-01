@@ -14,8 +14,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.stream.StreamSupport;
 
 public class Controller {
     // References to FXML elements of interest
@@ -68,7 +71,7 @@ public class Controller {
     private AnchorPane uiParent;
 
     @FXML
-    private Label selectedProcessingFile;
+    private TextArea selectedProcessingFile;
 
     @FXML
     private TextArea customDataPath;
@@ -147,7 +150,9 @@ public class Controller {
 
     // Keeps track if a test is in progress or not.
     private boolean testRunning = false;
+    private File destinationDir = null;
 
+    // TODO visualizer and data path stuff!
     @FXML
     private void handleRunTest(ActionEvent event) {
         if (!testRunning) {
@@ -157,35 +162,25 @@ public class Controller {
             runTestButton.setText("Stop Test");
             runTestButton.setStyle("-fx-background-color: #ff0000; -fx-text-fill: #ffffff;");
 
+            // Get destination directory
+            this.destinationDir = null;
+            if (customDataPathCheckbox.isSelected()) {
+                this.destinationDir = new File(customDataPath.getText());
+            }
+            else {
+                this.destinationDir = new File(generateDefaultPath());
+                // Create directory if it doesn't already exist
+                this.destinationDir.mkdir();
+            }
+
             // Run the DAQ software to collect data
-            launchDAQ();
+            launchDAQ(this.destinationDir);
         }
         else {
             testRunning = false;  // end test
 
             // Kill DAQ software
             this.daqExe.destroy();
-
-            // Get data's destination path
-            File destinationDir = null;
-            customDataPathCheckbox.setSelected(true);  // FIXME for debugging!
-            if (customDataPathCheckbox.isSelected()) {
-                destinationDir = new File(customDataPath.getText());
-            }
-            else {
-                // TODO figure out where default data paths should go!
-            }
-
-            // Move raw data to destination
-            try {
-                Files.move(
-                        Paths.get(DEFAULT_DAQ_PATH),
-                        Paths.get(destinationDir.getAbsolutePath() + "")
-                );
-            } catch (IOException e) {
-                System.out.println("Failed to copy data to destination");
-                e.printStackTrace();
-            }
 
             // Run processing on data if selected
             if (launchProcessingCheckbox.isSelected()) {
@@ -194,7 +189,7 @@ public class Controller {
                 runTestButton.setDisable(true);
 
                 // Execute processing stuff
-                executeProcessing();
+                executeProcessing(this.destinationDir, "RawData");  // busy wait fxn call
 
                 // TODO add visualizer launch stuff
                 if (launchVisualizerCheckbox.isSelected()) {
@@ -202,18 +197,40 @@ public class Controller {
                     File data = new File(datapath);
                     launchVisualizer(data);
                 }
-
             }
-
             // Set button back to original state
             runTestButton.setText("Start Test");
             runTestButton.setDisable(false);
         }
     }
 
+    // Stitches an array of strings back together into a single string to use as directory string
+    private String stitchStrings(String[] arr) {
+        String result = "";
+
+        for (int i = 0; i < arr.length - 2; i++) {
+            result += "\\" + arr[i];
+        }
+
+        return result;
+    }
+
     @FXML
     private void handleRunProcessing(ActionEvent event) {
-        executeProcessing();
+        String pathStr = selectedProcessingFile.getText();
+        try {
+            // Split file path
+            String[] split = pathStr.split("\\\\");
+            String filename = split[split.length-1].split("\\.")[0];
+            System.out.println(filename);
+
+            File destinationDir = new File(stitchStrings(split));
+
+            executeProcessing(destinationDir, filename);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -222,7 +239,7 @@ public class Controller {
         launchVisualizer(toDisplay);
     }
 
-    private void launchDAQ() {
+    private void launchDAQ(File destinationDir) {
         // Get params string to pass to Labview executable
         String params[];
         String param0, param1, param2, param3;
@@ -240,10 +257,12 @@ public class Controller {
         param2 = params[2];
         param3 = params[3];
 
+        String destination = destinationDir.getAbsolutePath() + "\\RawData.tdms";
+
         // Launch DAQ executable
         try {
             String daqExePath = System.getProperty("user.dir") + "\\DAQ\\Application.exe";  // TODO change to correct file
-            this.daqExe = new ProcessBuilder(daqExePath,param0, param1, param2, param3).start();
+            this.daqExe = new ProcessBuilder(daqExePath,param0, param1, param2, param3, destination).start();
         } catch (IOException e) {
             System.out.println("Failed to open executable");
             e.printStackTrace();
@@ -251,11 +270,26 @@ public class Controller {
 
     }
 
-    // TODO: Add parameters!
-    private void executeProcessing() {
+    private void executeProcessing(File directory, String filename) {
         try {
             String processingPath = System.getProperty("user.dir") + "\\processing\\main.py";  // TODO change to correct file
-            ProcessBuilder pb = new ProcessBuilder("python", "-u", processingPath, "main");
+            ProcessBuilder pb = new ProcessBuilder(
+                    "python",  // TODO may need to fix for lab computer!
+                    processingPath,
+                    directory.getAbsolutePath(),
+                    filename,
+                    xPixelsVal.getText(),  // x pixels
+                    yPixelsVal.getText(),  // y pixels
+                    directory.getAbsolutePath(),  // path to save created files
+                    "ProcessedData",  // name for created files
+                    "0",  // test being ran (0=current, 1=photodetector) TODO: See Processing future plans!
+                    tipCurrentVal.getText(),  // tested noise current
+                    "10",  // expected SNR of current  // TODO: See Processing future plans!
+                    photo1Val.getText(),  // tested noise photodetector 1
+                    "10",  // expected SNR of photodetector 1
+                    photo2Val.getText(),  // tested noise photodetector 2
+                    "10"  // expected SNR of photodetector 2
+            );
             Process processing = pb.start();
 
             int exitCode = processing.waitFor();  // wait for processing to end
@@ -293,5 +327,14 @@ public class Controller {
 
     private File selectDirectory() {
         return dChooser.showDialog(uiParent.getScene().getWindow());
+    }
+
+    private String generateDefaultPath() {
+        String path = System.getProperty("user.dir") + "\\data";
+
+        Date now = new Date();
+        path += "\\" + now.getTime();
+
+        return path;
     }
 }
