@@ -6,7 +6,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -137,7 +136,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <VBox alignment="CENTER" styleClass="panel-section">
                            <children>
@@ -150,8 +149,8 @@
                                  <children>
                                     <CheckBox fx:id="customDataPathCheckbox" mnemonicParsing="false" />
                                     <Label styleClass="checkbox-label" text="Custom File Path:" />
-                                    <TextArea fx:id="customDataPath" prefHeight="200.0" prefWidth="200.0" />
-                                    <Button fx:id="selectCustomDataPath" mnemonicParsing="false" onAction="#handleSelectCustomDataPath" text="Select" />
+                                    <TextField fx:id="customDataPath" />
+                                    <Button fx:id="selectCustomDataPath" mnemonicParsing="false" onAction="#handleSelectCustomDataPath" text="Select Directory" />
                                  </children>
                               </HBox>
                               <HBox styleClass="section-item">
@@ -183,7 +182,7 @@
                               </Label>
                               <HBox alignment="CENTER" styleClass="section-item">
                                  <children>
-                                    <TextArea fx:id="selectedProcessingFile" prefHeight="200.0" prefWidth="200.0" />
+                                    <TextField fx:id="selectedProcessingFile" />
                                     <Button fx:id="selectProcessFile" mnemonicParsing="false" onAction="#handleSelectProcessFile" text="Select File" />
                                  </children>
                               </HBox>
@@ -198,7 +197,28 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="runVisualizerButton" mnemonicParsing="false" onAction="#handleVisualizerLaunch" text="Launch Visualizer" />
+                              <HBox alignment="CENTER" styleClass="section-item">
+                                 <children>
+                                    <TextField fx:id="selectedVisualFile" />
+                                    <Button fx:id="selectVisualFile" mnemonicParsing="false" onAction="#handleSelectVisualFile" text="Select File" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="10.0" styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="Blob Number:" />
+                                    <TextField id="photo1" fx:id="blobNumber" styleClass="option-text-area" text="10">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="30.0">
+                                 <children>
+                                    <Button fx:id="displayBlobButton" mnemonicParsing="false" onAction="#handleDisplayBlob" text="Display Blob" />
+                                    <Button fx:id="generateMovieButton" mnemonicParsing="false" onAction="#handleGenerateMovie" text="Generate Movie" />
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                      </children>

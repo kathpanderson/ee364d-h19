@@ -59,7 +59,16 @@ public class Controller {
     private Button runProcessingButton;
 
     @FXML
-    private Button runVisualizerButton;
+    private Button generateMovieButton;
+
+    @FXML
+    private Button displayBlobButton;
+
+    @FXML
+    private TextField selectedVisualFile;
+
+    @FXML
+    private TextField blobNumber;
 
     @FXML
     private CheckBox launchProcessingCheckbox;
@@ -71,10 +80,10 @@ public class Controller {
     private AnchorPane uiParent;
 
     @FXML
-    private TextArea selectedProcessingFile;
+    private TextField selectedProcessingFile;
 
     @FXML
-    private TextArea customDataPath;
+    private TextField customDataPath;
 
     @FXML
     private CheckBox customDataPathCheckbox;
@@ -191,11 +200,9 @@ public class Controller {
                 // Execute processing stuff
                 executeProcessing(this.destinationDir, "RawData");  // busy wait fxn call
 
-                // TODO add visualizer launch stuff
                 if (launchVisualizerCheckbox.isSelected()) {
-                    String datapath = destinationDir.getAbsolutePath() + "";  // FIXME
-                    File data = new File(datapath);
-                    launchVisualizer(data);
+                    String datapath = destinationDir.getAbsolutePath() + "\\ProcessedData.csv";  // FIXME
+                    generateMovie(datapath);
                 }
             }
             // Set button back to original state
@@ -231,12 +238,6 @@ public class Controller {
         catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    private void handleVisualizerLaunch(ActionEvent event) {
-        File toDisplay = selectFile();
-        launchVisualizer(toDisplay);
     }
 
     private void launchDAQ(File destinationDir) {
@@ -304,9 +305,62 @@ public class Controller {
         }
     }
 
-    // TODO: Everything
-    private void launchVisualizer(File dataFile) {
-        System.out.println(dataFile.getAbsolutePath());
+    @FXML
+    private void handleSelectVisualFile(ActionEvent e) {
+        File file = selectFile();
+        selectedVisualFile.setText(file.getAbsolutePath());
+    }
+
+    @FXML
+    private void handleDisplayBlob(ActionEvent e) {
+        try {
+            String script = System.getProperty("user.dir") + "\\processing\\visualizing_cluster.py";  // TODO change to correct file
+
+            ProcessBuilder pb = new ProcessBuilder(
+                    "python",  // TODO may need to fix for lab computer!
+                    script,
+                    selectedVisualFile.getText(),
+                    blobNumber.getText()
+            );
+            Process processing = pb.start();
+
+            int exitCode = processing.waitFor();  // wait for processing to end
+            System.out.println("Processing exited with code " + exitCode);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        } catch (InterruptedException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleGenerateMovie(ActionEvent e) {
+        generateMovie(selectedVisualFile.getText());
+    }
+
+    private void generateMovie(String csvFile) {
+        try {
+            // Create mp4 file name!
+            String[] split = csvFile.split("\\\\");  // get csv file
+            String movieName = split[split.length-1].split("\\.")[0] + ".mp4";  // replace .csv with .mp4
+
+            String script = System.getProperty("user.dir") + "\\processing\\visualizing_movie.py";  // TODO change to correct file
+
+            ProcessBuilder pb = new ProcessBuilder(
+                    "python",  // TODO may need to fix for lab computer!
+                    script,
+                    csvFile,
+                    movieName
+            );
+            Process processing = pb.start();
+
+            int exitCode = processing.waitFor();  // wait for processing to end
+            System.out.println("Processing exited with code " + exitCode);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        } catch (InterruptedException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @FXML
