@@ -1,273 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="javaUI:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../DAQ/DtTest.lvm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DAQ/FINAL.aliases" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DAQ/FINAL.lvproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DAQ/FINAL.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DAQ/Final_DAQ.aliases" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DAQ/Final_DAQ.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DAQ/Final_DAQ.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DAQ/PLL_PID.vi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DAQ/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DAQ/csvOUT.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DAQ/lvm_Reader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/AD8067.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/Ithaco Preamp Manual.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/Ithaco Preamp.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/KiCAD-hotkeys.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/MUX36S08.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/NMH2409SC.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/PCB Design.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/PD Front-ends.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/Programmable Gain TIAs.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/THS4021.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/TIA Noise Article.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Datasheets/TMUX6136.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Preamp Documentation.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Preamp README.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/Preamp Simulation.ms14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/TIA Comparison.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Preamp/TIApreamp2US.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/Multiprocessed/Blocker3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/Multiprocessed/ClusterFinder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/Multiprocessed/FIRwindowFilter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/Multiprocessed/Freq_Clusterer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/Multiprocessed/ProcessingCaller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/Multiprocessed/ReadMe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/Multiprocessed/Thresholder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/Multiprocessed/normDFT.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/Multiprocessed/nptdmsTest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/ReadMe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/dataPresentation/Mean_Shift.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/dataPresentation/readMe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/dataPresentation/visualizing_cluster.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/dataPresentation/visualizing_movie.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/thresholder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/Blocker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/Blocker2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/BlockerTest.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/BlockerTest_sin.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/Blocker_use.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/ClusterFinder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/Freq_Clusterer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/MeanShift.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/MeanShift_use.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/Position.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/Positioner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/Positioner2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/ReadMe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v1/normDFT_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v2/Blocker2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v2/ClusterFinder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v2/FIRwindowFilter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v2/Freq_Clusterer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v2/Positioner2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v2/ReadMe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v2/SeeData.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v2/nptdmsTest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/Blocker2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/Blocker3_04_03_2020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/ClusterFinder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/ClusterFinder_3_16_2020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/FIRwindowFilter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/Freq_Clusterer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/Positioner2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/ProcessingCaller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/ReadMe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/Thresholder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/Thresholder_3_9_2020.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/Thresholder_ClusterFinder_3_9_2020.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/getData_3_11_2020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/normDFT.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/normDFT_04_03_2020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/normDFT_3_11_2020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v3/nptdmsTest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v4/Blocker3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v4/ClusterFinder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v4/FIRwindowFilter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v4/Freq_Clusterer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v4/ProcessingCaller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v4/ReadMe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v4/Thresholder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v4/normDFT.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Processings/v4/nptdmsTest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/DAQ/Application.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/javaUI.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/out/production/javaUI/META-INF/javaUI.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/out/production/javaUI/UI/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/out/production/javaUI/UI/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/out/production/javaUI/UI/UI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/out/production/javaUI/UI/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/processing/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/src/UI/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/src/UI/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/src/UI/UI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../javaUI/src/UI/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/out/production/tutorialUI/RegistrationFormApplication$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/out/production/tutorialUI/RegistrationFormApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/src/RegistrationFormApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tutorialUI/tutorialUI.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/.rescriptsrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/.webpack.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/H19 Controls UI Setup 0.1.0.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/H19 Controls UI Setup 0.1.0.exe.blockmap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/builder-effective-config.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/H19 Controls UI.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/LICENSE.electron.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/LICENSES.chromium.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/chrome_100_percent.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/chrome_200_percent.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/d3dcompiler_47.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/ffmpeg.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/icudtl.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/libEGL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/libGLESv2.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/am.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/ar.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/bg.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/bn.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/ca.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/cs.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/da.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/de.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/el.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/en-GB.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/en-US.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/es-419.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/es.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/et.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/fa.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/fi.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/fil.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/fr.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/gu.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/he.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/hi.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/hr.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/hu.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/id.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/it.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/ja.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/kn.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/ko.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/lt.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/lv.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/ml.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/mr.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/ms.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/nb.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/nl.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/pl.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/pt-BR.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/pt-PT.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/ro.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/ru.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/sk.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/sl.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/sr.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/sv.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/sw.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/ta.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/te.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/th.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/tr.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/uk.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/vi.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/zh-CN.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/locales/zh-TW.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources.pak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/.all-contributorsrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/.babelrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/.nvmrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/.prettierrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/cc-test-reporter" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/dist/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/lint-staged.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/other/dog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/@testing-library/user-event/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/lib/checkGrowl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/lib/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/notifiers/balloon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/notifiers/growl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/notifiers/notificationcenter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/notifiers/notifysend.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/notifiers/toaster.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-notifier" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/PkgInfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/Terminal.icns" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/Credits.rtf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/InfoPlist.strings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/notifu/notifu.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/notifu/notifu64.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/snoreToast/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/app.asar.unpacked/node_modules/node-notifier/vendor/terminal-notifier-LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/resources/elevate.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/snapshot_blob.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/swiftshader/libEGL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/swiftshader/libGLESv2.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/v8_context_snapshot.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/vk_swiftshader.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/dist/win-unpacked/vk_swiftshader_icd.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/public/electron.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/python_scripts/my_script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/Launchers/LauncherParent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/Launchers/ProcessingLauncher.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/Launchers/TestLauncher.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/Launchers/VisualLauncher.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/Parameters/HardwareParameters.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/Parameters/ParametersParent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/Parameters/ProcessingParameters.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/lib.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/serviceWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -327,8 +67,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+            <state relative-caret-position="80">
+              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#10698#10699#0" expanded="true" />
+                <element signature="e#10757#10758#0" expanded="true" />
+                <element signature="e#12187#12188#0" expanded="true" />
+                <element signature="e#12266#12267#0" expanded="true" />
+                <element signature="e#12304#12305#0" expanded="true" />
+                <element signature="e#12379#12380#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -407,6 +156,24 @@
             <path>
               <item name="javaUI" type="b2602c69:ProjectViewProjectNode" />
               <item name="javaUI" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javaUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javaUI" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javaUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javaUI" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="javaUI_jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javaUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javaUI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -430,9 +197,12 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1589298463381" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1589298691249" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
@@ -545,7 +315,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1328859" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1328859" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -554,7 +324,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4348442" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4348442" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -613,8 +383,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+        <state relative-caret-position="80">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10698#10699#0" expanded="true" />
+            <element signature="e#10757#10758#0" expanded="true" />
+            <element signature="e#12187#12188#0" expanded="true" />
+            <element signature="e#12266#12267#0" expanded="true" />
+            <element signature="e#12304#12305#0" expanded="true" />
+            <element signature="e#12379#12380#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -625,5 +404,82 @@
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>javaUI:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8.0_201</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>javaUI</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

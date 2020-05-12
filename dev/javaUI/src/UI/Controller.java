@@ -1,3 +1,10 @@
+/*
+    To build jar, see
+    https://www.jetbrains.com/help/idea/compiling-applications.html
+    After changing code, new JAR must be generated and put into prod
+    folder!
+ */
+
 package UI;
 
 import javafx.collections.FXCollections;
