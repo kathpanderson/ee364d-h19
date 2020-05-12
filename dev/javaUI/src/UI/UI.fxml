@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="uiParent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller">
+   <children>
+      <SplitPane dividerPositions="0.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane>
+               <children>
+                  <VBox alignment="CENTER" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox id="hardware-params" alignment="CENTER" spacing="5.0" styleClass="panel-section">
+                           <children>
+                              <Label styleClass="panel-title" text="Hardware Parameters">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Pane>
+                                 <children>
+                                    <Label styleClass="panel-subtitle" text="Pre Amp" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Pane>
+                              <HBox alignment="CENTER" spacing="10.0" styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="Enabled:" />
+                                    <CheckBox id="ampEnabled" fx:id="ampEnabled" mnemonicParsing="false" />
+                                 </children>
+                              </HBox>
+                              <HBox styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="Input Current Range:" />
+                                    <ChoiceBox fx:id="ampInputRange" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </VBox>
+                        <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="1.0" style="-fx-background-color: #666666;" />
+                        <VBox alignment="TOP_CENTER" styleClass="panel-section">
+                           <children>
+                              <Label styleClass="panel-title" text="Processing Parameters">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Pane minHeight="21.0">
+                                 <children>
+                                    <Label styleClass="panel-subtitle" text="SNR" />
+                                 </children>
+                              </Pane>
+                              <HBox alignment="CENTER" spacing="10.0" styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="Photodetector 1:" />
+                                    <TextField id="photo1" fx:id="photo1Val" styleClass="option-text-area" text="10">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font></TextField>
+                                    <Label styleClass="option-label" text="dB" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="10.0" styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="Photodetector 2:" />
+                                    <TextField id="photo2" fx:id="photo2Val" styleClass="option-text-area" text="10" />
+                                    <Label styleClass="option-label" text="dB" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="10.0" styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="Tip Current:" />
+                                    <TextField id="tipCurrent" fx:id="tipCurrentVal" styleClass="option-text-area" text="10" />
+                                    <Label styleClass="option-label" text="dB" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="10.0" styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="Tip Bias:" />
+                                    <TextField id="tipBias" fx:id="tipBiasVal" styleClass="option-text-area" text="10" />
+                                    <Label styleClass="option-label" text="dB" />
+                                 </children>
+                              </HBox>
+                              <Pane minHeight="21.0">
+                                 <children>
+                                    <Label styleClass="panel-subtitle" text="Image Dimensions" />
+                                 </children>
+                              </Pane>
+                              <HBox alignment="CENTER" spacing="10.0" styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="x:" />
+                                    <TextField id="xPixels" styleClass="option-text-area" text="128" fx:id="xPixelsVal" />
+                                    <Label styleClass="option-label" text="pixels" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="10.0" styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="y:" />
+                                    <TextField id="yPixels" fx:id="yPixelsVal" styleClass="option-text-area" text="128" />
+                                    <Label styleClass="option-label" text="pixels" />
+                                 </children>
+                              </HBox>
+                              <Pane minHeight="21.0">
+                                 <children>
+                                    <Label styleClass="panel-subtitle" text="DAQ Parameters" />
+                                 </children>
+                              </Pane>
+                              <HBox alignment="CENTER" spacing="10.0" styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="Sampling Rate:" />
+                                    <TextField id="daqRate" fx:id="daqSamplingRateVal" styleClass="option-text-area" text="2" />
+                                    <ChoiceBox id="daqUnits" fx:id="daqSamplingRateUnit" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="panel-section">
+                           <children>
+                              <Label styleClass="panel-title" text="Run Test">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <HBox styleClass="section-item">
+                                 <children>
+                                    <CheckBox fx:id="customDataPathCheckbox" mnemonicParsing="false" />
+                                    <Label styleClass="checkbox-label" text="Custom File Path:" />
+                                    <TextField fx:id="customDataPath" />
+                                    <Button fx:id="selectCustomDataPath" mnemonicParsing="false" onAction="#handleSelectCustomDataPath" text="Select Directory" />
+                                 </children>
+                              </HBox>
+                              <HBox styleClass="section-item">
+                                 <children>
+                                    <CheckBox fx:id="launchProcessingCheckbox" mnemonicParsing="false" />
+                                    <Label styleClass="checkbox-label" text="Process Data" />
+                                 </children>
+                              </HBox>
+                              <HBox styleClass="section-item">
+                                 <children>
+                                    <CheckBox fx:id="launchVisualizerCheckbox" mnemonicParsing="false" />
+                                    <Label styleClass="checkbox-label" text="Launch visualizer" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="section-item">
+                                 <children>
+                                    <Button fx:id="runTestButton" mnemonicParsing="false" onAction="#handleRunTest" text="Start Test" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="1.0" style="-fx-background-color: #666666;" />
+                        <VBox alignment="CENTER" styleClass="panel-section">
+                           <children>
+                              <Label styleClass="panel-title" text="Process Data">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER" styleClass="section-item">
+                                 <children>
+                                    <TextField fx:id="selectedProcessingFile" />
+                                    <Button fx:id="selectProcessFile" mnemonicParsing="false" onAction="#handleSelectProcessFile" text="Select File" />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="runProcessingButton" mnemonicParsing="false" onAction="#handleRunProcessing" styleClass="custom-button" text="Start Processing" />
+                           </children>
+                        </VBox>
+                        <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="1.0" style="-fx-background-color: #666666;" />
+                        <VBox alignment="CENTER" styleClass="panel-section">
+                           <children>
+                              <Label styleClass="panel-title" text="Visualizer">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER" styleClass="section-item">
+                                 <children>
+                                    <TextField fx:id="selectedVisualFile" />
+                                    <Button fx:id="selectVisualFile" mnemonicParsing="false" onAction="#handleSelectVisualFile" text="Select File" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="10.0" styleClass="section-item">
+                                 <children>
+                                    <Label styleClass="option-label" text="Blob Number:" />
+                                    <TextField id="photo1" fx:id="blobNumber" styleClass="option-text-area" text="10">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="30.0">
+                                 <children>
+                                    <Button fx:id="displayBlobButton" mnemonicParsing="false" onAction="#handleDisplayBlob" text="Display Blob" />
+                                    <Button fx:id="generateMovieButton" mnemonicParsing="false" onAction="#handleGenerateMovie" text="Generate Movie" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
