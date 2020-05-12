@@ -95,6 +95,8 @@ public class Controller {
 
     private DirectoryChooser dChooser;
 
+    private String PYTHON = "python3";
+
     // Maps text in the pre amp current range selector to a value
     // to pass to the DAQ for data collection.
     private LinkedHashMap<String, String> ampInputCurrentOptions;
@@ -201,7 +203,7 @@ public class Controller {
                 executeProcessing(this.destinationDir, "RawData");  // busy wait fxn call
 
                 if (launchVisualizerCheckbox.isSelected()) {
-                    String datapath = destinationDir.getAbsolutePath() + "\\ProcessedData.csv";  // FIXME
+                    String datapath = destinationDir.getAbsolutePath() + "\\ProcessedData.csv";
                     generateMovie(datapath);
                 }
             }
@@ -273,9 +275,9 @@ public class Controller {
 
     private void executeProcessing(File directory, String filename) {
         try {
-            String processingPath = System.getProperty("user.dir") + "\\processing\\main.py";  // TODO change to correct file
+            String processingPath = System.getProperty("user.dir") + "\\processing\\ProcessingCaller.py";
             ProcessBuilder pb = new ProcessBuilder(
-                    "python",  // TODO may need to fix for lab computer!
+                    PYTHON,
                     processingPath,
                     directory.getAbsolutePath(),
                     filename,
@@ -317,7 +319,7 @@ public class Controller {
             String script = System.getProperty("user.dir") + "\\processing\\visualizing_cluster.py";  // TODO change to correct file
 
             ProcessBuilder pb = new ProcessBuilder(
-                    "python",  // TODO may need to fix for lab computer!
+                    PYTHON,  // TODO may need to fix for lab computer!
                     script,
                     selectedVisualFile.getText(),
                     blobNumber.getText()
@@ -347,7 +349,7 @@ public class Controller {
             String script = System.getProperty("user.dir") + "\\processing\\visualizing_movie.py";  // TODO change to correct file
 
             ProcessBuilder pb = new ProcessBuilder(
-                    "python",  // TODO may need to fix for lab computer!
+                    PYTHON,  // TODO may need to fix for lab computer!
                     script,
                     csvFile,
                     movieName
